@@ -1,0 +1,11 @@
+{% extends "attendance/base.html" %}
+{% block title %}Site list{% endblock %}
+{% block content%}
+    <h1>Sites</h1>
+    <a href="{% url 'add_site' %}">Add Site</a>
+    <ul>
+        {% for site in sites %}
+            <li>{{ site.name }} - {{ site.location }}</li>
+        {% endfor %}
+    </ul>
+{% endblock%}

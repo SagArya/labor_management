@@ -1,0 +1,24 @@
+<!-- attendance/templates/attendance/base.html -->
+ {% load static tailwind_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Labor Management{% endblock %}</title>
+    {% tailwind_css %}
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-blue-500 text-white p-4">
+        <div class="container mx-auto">
+            <a href="{% url 'worker_list' %}" class="mr-4 hover:text-gray-200 transition duration-300">Workers</a>
+            <a href="{% url 'add_worker' %}" class="mr-4 hover:text-gray-200 transition duration-300">Add Worker</a>
+            <a href="{% url 'site_list' %}" class="mr-4 hover:text-gray-200 transition duration-300">Sites</a>
+            <a href="{% url 'record_attendance' %}" class="mr-4 hover:text-gray-200 transition duration-300">Record Attendance</a>
+            <a href="{% url 'record_advance_payment' %}" class="mr-4 hover:text-gray-200 transition duration-300">Record Advance Payment</a>
+            <a href="{% url 'calculate_salary' %}" class="hover:text-gray-200 transition duration-300">Calculate Salary</a>
+        </div>
+    </nav>
+    <div class="container mx-auto mt-8">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

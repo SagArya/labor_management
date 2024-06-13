@@ -1,0 +1,38 @@
+<!-- attendance/templates/attendance/site_form.html -->
+{% extends "attendance/base.html" %}
+
+{% block title %}Add Site{% endblock %}
+
+{% block content %}
+    <h1 class="text-2xl font-bold mb-4">Add Site</h1>
+    <form method="post" action="{% url 'add_site' %}" class="bg-white p-4 rounded shadow">
+        {% csrf_token %}
+        <div class="mb-4">
+            <label for="name" class="block text-gray-700">Name:</label>
+            <input type="text" name="name" id="name" class="border border-gray-300 p-2 rounded w-full" required>
+        </div>
+        <div class="mb-4">
+            <label for="location" class="block text-gray-700">Location:</label>
+            <input type="text" name="location" id="location" class="border border-gray-300 p-2 rounded w-full" required>
+        </div>
+        <button type="submit" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-700 transition duration-300">Save</button>
+    </form>
+
+    <h2 class="text-xl font-bold mt-8 mb-4">Site List</h2>
+    <table class="min-w-full bg-white border border-gray-300 rounded shadow">
+        <thead>
+            <tr>
+                <th class="p-2 border-b">Name</th>
+                <th class="p-2 border-b">Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for site in sites %}
+            <tr class="hover:bg-gray-100 transition duration-300">
+                <td class="p-2 border-b">{{ site.name }}</td>
+                <td class="p-2 border-b">{{ site.location }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
