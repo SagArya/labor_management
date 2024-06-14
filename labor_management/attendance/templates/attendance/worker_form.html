@@ -4,6 +4,7 @@
 {% block title %}Add Worker{% endblock %}
 
 {% block content %}
+<div class="max-w-lg mx-auto bg-white p-10 rounded-lg shadow-lg">
     <h1 class="text-2xl font-bold mb-4">Add Worker</h1>
     <form method="post" action="{% url 'add_worker' %}" class="bg-white p-4 rounded shadow">
         {% csrf_token %}
@@ -25,6 +26,7 @@
         </div>
         <button type="submit" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-700 transition duration-300">Save</button>
     </form>
+</div>
 
     <h2 class="text-xl font-bold mt-8 mb-4">Worker List</h2>
     <table class="min-w-full bg-white border border-gray-300 rounded shadow">
